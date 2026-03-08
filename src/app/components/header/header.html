@@ -1,20 +1,38 @@
-<nav class="navbar is-fixed-top shadow-sm" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top-desktop is-fixed-bottom-mobile shadow-sm" role="navigation" aria-label="main navigation">
   <div class="container">
-    <div class="navbar-brand">
+    <div class="navbar-brand is-hidden-mobile">
       <a class="navbar-item is-flex is-align-items-center" href="/">
         <img src="image/logo.png" alt="Optima Collection Logo" class="mr-2 logo-blend" style="max-height: 40px;">
         <h1 class="title is-4 mb-0" [class.has-text-white]="themeService.isDarkMode()">Optima Collection</h1>
       </a>
-
-      <a role="button" class="navbar-burger" [class.is-active]="isMenuOpen" aria-label="menu" aria-expanded="false" (click)="toggleMenu()">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
     </div>
 
-    <div class="navbar-menu" [class.is-active]="isMenuOpen">
+    <!-- Mobile Nav Bar (Visible only on mobile) -->
+    <div class="mobile-nav-row is-hidden-tablet">
+      <a class="mobile-nav-item" href="#about">
+        <span class="icon is-small"><i class="fas fa-info-circle"></i></span>
+        <span>Про нас</span>
+      </a>
+      <a class="mobile-nav-item" href="#rooms">
+        <span class="icon is-small"><i class="fas fa-bed"></i></span>
+        <span>Номери</span>
+      </a>
+      <a class="mobile-nav-item" href="#gallery">
+        <span class="icon is-small"><i class="fas fa-images"></i></span>
+        <span>Фото</span>
+      </a>
+      <a class="mobile-nav-item" href="#location">
+        <span class="icon is-small"><i class="fas fa-map-marker-alt"></i></span>
+        <span>Карта</span>
+      </a>
+      <button class="mobile-nav-item theme-btn" (click)="themeService.toggleTheme()">
+        <span class="icon is-small"><i [class]="themeService.isDarkMode() ? 'fas fa-sun' : 'fas fa-moon'"></i></span>
+        <span>{{ themeService.isDarkMode() ? 'Світла' : 'Темна' }}</span>
+      </button>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="navbar-menu is-hidden-mobile">
       <div class="navbar-start">
         <a class="navbar-item" href="#about">Про готель</a>
         <a class="navbar-item" href="#rooms">Номери</a>
@@ -30,7 +48,7 @@
                 <i [class]="themeService.isDarkMode() ? 'fas fa-sun' : 'fas fa-moon'"></i>
               </span>
             </button>
-            <a class="button is-primary" href="https://optimahotels.com.ua/uk/hotels/kamianets-podilsky/rooms/?utm_source=ighttps://reikartz.com/uk/hotels/kamianets-podilsky/utm_medium=socialhttps://reikartz.com/uk/hotels/kamianets-podilsky/utm_content=link_in_biohttps://reikartz.com/uk/hotels/kamianets-podilsky/fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbeBnV0mQOhcpsDUYjJl30q6ZrZlVhUAZv2FKZlY6huQk3Nzbvog4oEhjV9U_aem_wOWOhuQL8T-HNQCnbZZ3lw" target="_blank">
+            <a class="button is-primary" href="https://optimahotels.com.ua/uk/hotels/kamianets-podilsky/rooms/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbeBnV0mQOhcpsDUYjJl30q6ZrZlVhUAZv2FKZlY6huQk3Nzbvog4oEhjV9U_aem_wOWOhuQL8T-HNQCnbZZ3lw" target="_blank">
               <strong>Бронювати</strong>
             </a>
           </div>

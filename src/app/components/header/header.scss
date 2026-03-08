@@ -1,34 +1,87 @@
 .navbar {
   transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 1000;
   
-  &.is-fixed-top {
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+  &.is-fixed-top-desktop {
+    @media screen and (min-width: 1024px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+  }
+
+  &.is-fixed-bottom-mobile {
+    @media screen and (max-width: 1023px) {
+      position: fixed;
+      bottom: 0;
+      top: auto;
+      left: 0;
+      right: 0;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      height: auto;
+      padding: 5px 0;
+    }
+  }
+}
+
+// Mobile Nav Bar Styles
+.mobile-nav-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 5px 0;
+
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #4a4a4a;
+    font-size: 0.75rem;
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 5px;
+    flex: 1;
+
+    span {
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+
+    .icon {
+      color: var(--hotel-gold);
+    }
+
+    &:active {
+      background-color: rgba(0,0,0,0.05);
+    }
   }
 }
 
 .shadow-sm {
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  @media screen and (max-width: 1023px) {
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+  }
 }
 
 [data-theme='dark'] {
   .navbar {
     background-color: #1a1a1a;
-    border-bottom-color: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.1);
     
     .navbar-item, .navbar-link {
       color: #eee;
-      &:hover {
-        background-color: #2a2a2a;
-        color: var(--hotel-gold);
-      }
     }
+  }
 
-    .navbar-burger {
-      color: #eee;
-    }
-
-    .navbar-menu {
-      background-color: #1a1a1a;
+  .mobile-nav-row .mobile-nav-item {
+    color: #eee;
+    &:active {
+      background-color: rgba(255,255,255,0.05);
     }
   }
 }
