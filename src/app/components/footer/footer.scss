@@ -1,0 +1,36 @@
+.footer {
+  padding: 4rem 1.5rem 2rem;
+  background-color: #f8f9fa;
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      margin-bottom: 0.5rem;
+      a {
+        color: inherit;
+        &:hover {
+          color: var(--hotel-gold);
+        }
+      }
+    }
+  }
+
+  .social-icons a {
+    color: var(--hotel-gold);
+    transition: color 0.3s ease;
+    &:hover {
+      color: #b38f4a;
+    }
+  }
+}
+
+[data-theme='dark'] .footer {
+  background-color: #121212;
+  color: #fff;
+  .title {
+    color: #fff;
+  }
+}

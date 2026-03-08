@@ -1,0 +1,116 @@
+@import "bulma/bulma";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+:root {
+  --hotel-gold: #c5a059;
+  --hotel-dark: #1a1a1a;
+  --hotel-light: #f8f9fa;
+  
+  --bulma-primary: var(--hotel-gold);
+  --bulma-family-sans-serif: "Montserrat", sans-serif;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #fff;
+  color: #333;
+}
+
+[data-theme='dark'] {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  // Global overrides for dark theme
+  .has-background-light {
+    background-color: #1a1a1a !important;
+  }
+
+  .card, .box {
+    background-color: #2a2a2a !important;
+    color: #fff !important;
+    
+    .title, .subtitle, .content, p, a, span:not(.icon), .label, .has-text-dark {
+      color: #fff !important;
+    }
+    
+    .tag.is-light {
+      background-color: #3a3a3a !important;
+      color: #eee !important;
+    }
+    
+    hr {
+      background-color: #444 !important;
+    }
+  }
+
+  .footer {
+    background-color: #121212 !important;
+    color: #fff !important;
+    
+    .title, .subtitle, p, a, li, span {
+      color: #fff !important;
+    }
+    
+    hr {
+      background-color: #333 !important;
+    }
+  }
+
+  .navbar {
+    background-color: #1a1a1a !important;
+    .navbar-item, .navbar-link {
+      color: #eee !important;
+    }
+    .navbar-menu {
+      background-color: #1a1a1a !important;
+    }
+  }
+
+  .title, .subtitle {
+    color: #fff !important;
+  }
+}
+
+.section {
+  padding: 4rem 1.5rem;
+}
+
+.title {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.button.is-primary {
+  background-color: var(--hotel-gold);
+  border-color: transparent;
+  color: #fff;
+  &:hover {
+    background-color: #b38f4a;
+  }
+}
+
+.shadow-lg, .shadow {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+[data-theme='dark'] .shadow-lg, [data-theme='dark'] .shadow {
+  box-shadow: 0 10px 30px rgba(255,255,255,0.05);
+}
+
+// Fixed Logo blending
+.logo-blend {
+  mix-blend-mode: multiply; 
+  border-radius: 50%; // Forces circular shape to hide white corners
+  background-color: transparent;
+  display: block;
+}
+
+[data-theme='dark'] .logo-blend {
+  mix-blend-mode: normal; 
+  filter: invert(1) brightness(1.2); // Inverts white to black and dark color to light
+  background-color: transparent;
+}

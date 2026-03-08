@@ -1,0 +1,41 @@
+<nav class="navbar is-fixed-top shadow-sm" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item is-flex is-align-items-center" href="/">
+        <img src="image/logo.png" alt="Optima Collection Logo" class="mr-2 logo-blend" style="max-height: 40px;">
+        <h1 class="title is-4 mb-0" [class.has-text-white]="themeService.isDarkMode()">Optima Collection</h1>
+      </a>
+
+      <a role="button" class="navbar-burger" [class.is-active]="isMenuOpen" aria-label="menu" aria-expanded="false" (click)="toggleMenu()">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu" [class.is-active]="isMenuOpen">
+      <div class="navbar-start">
+        <a class="navbar-item" href="#about">Про готель</a>
+        <a class="navbar-item" href="#rooms">Номери</a>
+        <a class="navbar-item" href="#gallery">Галерея</a>
+        <a class="navbar-item" href="#location">Локація</a>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <button class="button is-ghost" (click)="themeService.toggleTheme()" [title]="themeService.isDarkMode() ? 'Світла тема' : 'Темна тема'">
+              <span class="icon">
+                <i [class]="themeService.isDarkMode() ? 'fas fa-sun' : 'fas fa-moon'"></i>
+              </span>
+            </button>
+            <a class="button is-primary" href="https://optimahotels.com.ua/uk/hotels/kamianets-podilsky/rooms/?utm_source=ighttps://reikartz.com/uk/hotels/kamianets-podilsky/utm_medium=socialhttps://reikartz.com/uk/hotels/kamianets-podilsky/utm_content=link_in_biohttps://reikartz.com/uk/hotels/kamianets-podilsky/fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbeBnV0mQOhcpsDUYjJl30q6ZrZlVhUAZv2FKZlY6huQk3Nzbvog4oEhjV9U_aem_wOWOhuQL8T-HNQCnbZZ3lw" target="_blank">
+              <strong>Бронювати</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

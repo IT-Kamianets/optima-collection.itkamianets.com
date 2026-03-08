@@ -1,0 +1,32 @@
+.shadow {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  height: 450px;
+}
+
+[data-theme='dark'] {
+  #location.has-background-light {
+    background-color: #1a1a1a !important;
+  }
+  
+  .box.contact-box {
+    background-color: #2a2a2a;
+    color: #fff;
+    
+    .title, .content, p, a, .has-text-dark {
+      color: #fff !important;
+    }
+    
+    hr {
+      background-color: #444;
+    }
+  }
+
+  .shadow {
+    box-shadow: 0 10px 30px rgba(255,255,255,0.05);
+  }
+}

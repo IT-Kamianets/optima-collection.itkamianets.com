@@ -1,0 +1,27 @@
+.hero {
+  background: url('/image/1.png') center 20%/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+
+  .hero-body {
+    z-index: 2;
+  }
+
+  .title, .subtitle {
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.hero-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3));
+  z-index: 1;
+}
+
+.is-fullheight-with-navbar {
+  min-height: calc(100vh - 3.25rem);
+}
