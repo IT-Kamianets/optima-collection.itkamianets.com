@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header';
 import { FooterComponent } from './components/footer/footer';
@@ -8,6 +8,7 @@ import { RoomsComponent } from './components/rooms/rooms';
 import { GalleryComponent } from './components/gallery/gallery';
 import { LocationComponent } from './components/location/location';
 import { ThemeService } from './services/theme';
+import { BookingService } from './services/booking';
 
 @Component({
   selector: 'opt-app',
@@ -27,5 +28,6 @@ import { ThemeService } from './services/theme';
 })
 export class AppComponent {
   title = 'optima-collection';
+  booking = inject(BookingService);
   constructor(private themeService: ThemeService) {}
 }

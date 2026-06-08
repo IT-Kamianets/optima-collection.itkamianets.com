@@ -7,7 +7,7 @@
       </a>
     </div>
 
-    <!-- Mobile Nav Bar (Visible only on mobile) -->
+    <!-- Mobile Nav Bar -->
     <div class="mobile-nav-row is-hidden-tablet">
       <a class="mobile-nav-item" href="#about">
         <span class="icon is-small"><i class="fas fa-info-circle"></i></span>
@@ -48,8 +48,11 @@
                 <i [class]="themeService.isDarkMode() ? 'fas fa-sun' : 'fas fa-moon'"></i>
               </span>
             </button>
-            <a class="button is-primary" href="https://optimahotels.com.ua/uk/hotels/kamianets-podilsky/rooms/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbeBnV0mQOhcpsDUYjJl30q6ZrZlVhUAZv2FKZlY6huQk3Nzbvog4oEhjV9U_aem_wOWOhuQL8T-HNQCnbZZ3lw" target="_blank">
+            <button class="button is-primary is-outlined" (click)="booking.open()">
               <strong>Бронювати</strong>
+            </button>
+            <a class="button is-primary" href="https://optimahotels.com.ua/uk/hotels/kamianets-podilsky/rooms/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbeBnV0mQOhcpsDUYjJl30q6ZrZlVhUAZv2FKZlY6huQk3Nzbvog4oEhjV9U_aem_wOWOhuQL8T-HNQCnbZZ3lw" target="_blank">
+              <strong>Бронювати онлайн</strong>
             </a>
           </div>
         </div>

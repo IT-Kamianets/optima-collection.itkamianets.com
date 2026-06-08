@@ -1,91 +1,54 @@
-<section id="rooms" class="section has-background-light">
+<section id="rooms" class="section">
   <div class="container">
-    <h2 class="title is-2 has-text-centered mb-6">Наші номери</h2>
-    <div class="columns is-multiline">
-      <!-- Room 1 -->
-      <div class="column is-4">
-        <div class="card room-card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="image/2.png" alt="Standard Room">
-            </figure>
+    <h2 class="title is-3 has-text-centered mb-6">Номери готелю Optima Collection Кам'янець-Подільський</h2>
+
+    <div class="rooms-grid">
+      @for (room of rooms; track room.id) {
+        <div class="room-card">
+          <div class="room-gallery">
+            <button class="gallery-arrow left" (click)="prevImage(room)" [disabled]="room.images.length <= 1">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <img [src]="room.images[room.currentIndex]" [alt]="room.title" class="gallery-image">
+            <button class="gallery-arrow right" (click)="nextImage(room)" [disabled]="room.images.length <= 1">
+              <i class="fas fa-chevron-right"></i>
+            </button>
           </div>
-          <div class="card-content">
-            <h3 class="title is-4">Стандарт</h3>
-            <p class="content">Затишний номер для комфортного відпочинку після прогулянок містом.</p>
-            <div class="tags">
-              <span class="tag is-info is-light">Wi-Fi</span>
-              <span class="tag is-info is-light">TV</span>
-              <span class="tag is-info is-light">Air-con</span>
+
+          <div class="room-info">
+            <h3 class="title is-5 room-title">{{ room.title }}</h3>
+            <p class="room-description">{{ room.description }}</p>
+
+            <div class="features-grid">
+              <div class="features-col">
+                @for (f of room.leftFeatures; track f.text) {
+                  <div class="feature-item">
+                    <i [class]="f.icon + ' feature-icon'"></i>
+                    <span>{{ f.text }}</span>
+                  </div>
+                }
+              </div>
+              <div class="features-col">
+                @for (f of room.rightFeatures; track f.text) {
+                  <div class="feature-item">
+                    <i [class]="f.icon + ' feature-icon'"></i>
+                    <span>{{ f.text }}</span>
+                  </div>
+                }
+              </div>
             </div>
-            <hr>
-            <div class="level is-mobile">
-              <div class="level-left">
-                <span class="title is-5 has-text-primary">від 1500₴</span>
-              </div>
-              <div class="level-right">
-                <a class="button is-primary is-small" href="https://optimahotels.com.ua/uk/hotels/kamianets-podilsky/rooms/?utm_source=ighttps://reikartz.com/uk/hotels/kamianets-podilsky/utm_medium=socialhttps://reikartz.com/uk/hotels/kamianets-podilsky/utm_content=link_in_biohttps://reikartz.com/uk/hotels/kamianets-podilsky/fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbeBnV0mQOhcpsDUYjJl30q6ZrZlVhUAZv2FKZlY6huQk3Nzbvog4oEhjV9U_aem_wOWOhuQL8T-HNQCnbZZ3lw" target="_blank">Обрати</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Room 2 -->
-      <div class="column is-4">
-        <div class="card room-card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="image/3.png" alt="Superior Room">
-            </figure>
-          </div>
-          <div class="card-content">
-            <h3 class="title is-4">Суперіор</h3>
-            <p class="content">Покращений номер зі збільшеною площею та додатковими зручностями.</p>
-            <div class="tags">
-              <span class="tag is-info is-light">Wi-Fi</span>
-              <span class="tag is-info is-light">TV</span>
-              <span class="tag is-info is-light">Minibar</span>
-            </div>
-            <hr>
-            <div class="level is-mobile">
-              <div class="level-left">
-                <span class="title is-5 has-text-primary">від 2200₴</span>
-              </div>
-              <div class="level-right">
-                <a class="button is-primary is-small" href="https://optimahotels.com.ua/uk/hotels/kamianets-podilsky/rooms/?utm_source=ighttps://reikartz.com/uk/hotels/kamianets-podilsky/utm_medium=socialhttps://reikartz.com/uk/hotels/kamianets-podilsky/utm_content=link_in_biohttps://reikartz.com/uk/hotels/kamianets-podilsky/fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbeBnV0mQOhcpsDUYjJl30q6ZrZlVhUAZv2FKZlY6huQk3Nzbvog4oEhjV9U_aem_wOWOhuQL8T-HNQCnbZZ3lw" target="_blank">Обрати</a>
-              </div>
+
+            <div class="buttons mt-3">
+              <a class="button is-primary is-small booking-btn" [href]="bookingUrl" target="_blank">
+                Бронювати онлайн
+              </a>
+              <button class="button is-primary is-outlined is-small booking-btn" (click)="booking.open()">
+                Бронювати
+              </button>
             </div>
           </div>
         </div>
-      </div>
-      <!-- Room 3 -->
-      <div class="column is-4">
-        <div class="card room-card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="image/4.png" alt="Suite">
-            </figure>
-          </div>
-          <div class="card-content">
-            <h3 class="title is-4">Люкс</h3>
-            <p class="content">Найвищий рівень комфорту для справжніх цінителів розкоші.</p>
-            <div class="tags">
-              <span class="tag is-info is-light">Wi-Fi</span>
-              <span class="tag is-info is-light">TV</span>
-              <span class="tag is-info is-light">Balcony</span>
-            </div>
-            <hr>
-            <div class="level is-mobile">
-              <div class="level-left">
-                <span class="title is-5 has-text-primary">від 3500₴</span>
-              </div>
-              <div class="level-right">
-                <a class="button is-primary is-small" href="https://optimahotels.com.ua/uk/hotels/kamianets-podilsky/rooms/?utm_source=ighttps://reikartz.com/uk/hotels/kamianets-podilsky/utm_medium=socialhttps://reikartz.com/uk/hotels/kamianets-podilsky/utm_content=link_in_biohttps://reikartz.com/uk/hotels/kamianets-podilsky/fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbeBnV0mQOhcpsDUYjJl30q6ZrZlVhUAZv2FKZlY6huQk3Nzbvog4oEhjV9U_aem_wOWOhuQL8T-HNQCnbZZ3lw" target="_blank">Обрати</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      }
     </div>
   </div>
 </section>

@@ -10,11 +10,11 @@ import { CommonModule } from '@angular/common';
 })
 export class GalleryComponent {
   galleryImages = [
-    'image/5.png',
+    'image/photo_1.jpg',
+    'image/photo_2.jpg',
     'image/6.png',
     'image/7.png',
     'image/8.png',
-    'image/9.png',
     'image/10.png',
     'image/11.png',
     'image/13.png'

@@ -9,3 +9,62 @@
 </main>
 
 <opt-footer></opt-footer>
+
+<!-- Global Booking Modal -->
+@if (booking.isOpen()) {
+  <div class="modal is-active">
+    <div class="modal-background" (click)="booking.close()"></div>
+    <div class="modal-card booking-modal">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Бронювання номера</p>
+        <button class="delete" aria-label="close" (click)="booking.close()"></button>
+      </header>
+
+      <section class="modal-card-body">
+        @if (booking.sent()) {
+          <div class="has-text-centered py-4">
+            <span class="icon is-large has-text-success" style="font-size: 3rem;">
+              <i class="fas fa-check-circle"></i>
+            </span>
+            <p class="title is-5 mt-3">Дякуємо!</p>
+            <p class="subtitle is-6">Ваш запит отримано. Ми зв'яжемось з вами найближчим часом.</p>
+          </div>
+        } @else {
+          <div class="field">
+            <label class="label">Ваше ім'я</label>
+            <div class="control has-icons-left">
+              <input class="input" type="text" placeholder="Введіть ім'я"
+                [value]="booking.name()" (input)="booking.name.set($any($event.target).value)">
+              <span class="icon is-left"><i class="fas fa-user"></i></span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Номер телефону</label>
+            <div class="control has-icons-left">
+              <input class="input" type="tel" placeholder="+38 (0__) ___-__-__"
+                [value]="booking.phone()" (input)="booking.phone.set($any($event.target).value)">
+              <span class="icon is-left"><i class="fas fa-phone"></i></span>
+            </div>
+          </div>
+
+          @if (booking.error()) {
+            <p class="help is-danger">{{ booking.error() }}</p>
+          }
+        }
+      </section>
+
+      @if (!booking.sent()) {
+        <footer class="modal-card-foot">
+          <button class="button is-primary"
+            (click)="booking.submit()"
+            [disabled]="booking.sending() || !booking.name().trim() || !booking.phone().trim()"
+            [class.is-loading]="booking.sending()">
+            Надіслати запит
+          </button>
+          <button class="button" (click)="booking.close()">Скасувати</button>
+        </footer>
+      }
+    </div>
+  </div>
+}

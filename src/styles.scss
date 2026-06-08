@@ -73,6 +73,21 @@ body {
   .title, .subtitle {
     color: #fff !important;
   }
+
+  // Rooms section
+  #rooms {
+    background-color: #121212 !important;
+
+    .room-card {
+      background: #1e1e1e;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .room-description,
+    .feature-item {
+      color: #aaa;
+    }
+  }
 }
 
 .section {
